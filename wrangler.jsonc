@@ -1,0 +1,9 @@
+{
+  // Cloudflare Workers — статический сайт (assets-only, без серверного кода).
+  // Раздаёт файлы из папки public/. Деплой: npx wrangler deploy
+  "name": "grishkin-org",
+  "compatibility_date": "2026-07-08",
+  "assets": {
+    "directory": "public"
+  }
+}
