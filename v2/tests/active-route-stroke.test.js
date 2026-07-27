@@ -11,5 +11,7 @@ assert.match(
 );
 assert.match(html, /id="security-in"[^>]*class="flow security"/, "Не найден входной Security-путь");
 assert.match(html, /id="security-out"[^>]*class="flow security"/, "Не найден выходной Security-путь");
+assert.match(html, /id="redteam-in"[^>]*class="flow redteam"/, "Не найден входной Red Team-путь");
+assert.match(html, /id="redteam-out"[^>]*class="flow redteam"/, "Не найден выходной Red Team-путь");
 
 console.log("active route stroke: ok");

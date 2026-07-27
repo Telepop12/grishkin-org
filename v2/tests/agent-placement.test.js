@@ -1,7 +1,7 @@
 const assert = require("node:assert/strict");
 const { agentLayouts, curves, point } = require("../pipeline-layout.js");
 
-for (const scenario of ["ops", "security", "decision"]) {
+for (const scenario of ["ops", "security", "redteam", "decision"]) {
   const layout = agentLayouts[scenario];
   assert.equal(layout.length, 3, `${scenario}: на потоке должны быть три агента`);
   layout.forEach(agent => {

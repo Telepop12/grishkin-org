@@ -29,7 +29,14 @@
         <a href="#projects">Проекты</a>
         <a href="#publications">Публикации</a>
       </nav>
-      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Переключить тему">◐</button>
+      <div class="preferences">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Переключить тему"><span aria-hidden="true">☼</span><b id="theme-label">LIGHT</b></button>
+        <div class="lang-switch" role="group" aria-label="Язык">
+          <button class="active" type="button" data-lang="ru" aria-pressed="true">RU</button>
+          <i></i>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
       <a class="header-cta" href="#lab">LIVE LAB ↘</a>
     </div>
   </header>
@@ -38,7 +45,7 @@
     <section class="hero">
       <div>
         <p class="overline"><i></i> НЕЗАВИСИМЫЙ R&amp;D-ПРОЕКТ · С ИЮНЯ 2025</p>
-        <h1>AI-системы,<br>которые <em>работают</em><br>в реальном контуре.</h1>
+        <h1>AI-системы внутри<br>корпоративной<br><em>ИТ-инфраструктуры</em></h1>
         <p class="hero-lede">Мультиагентная лаборатория для ИТ-эксплуатации, кибербезопасности и управленческих решений. Агенты анализируют и предлагают. Последнее слово — за человеком.</p>
         <div class="hero-actions">
           <a class="primary-button" href="#lab">Запустить сценарий <span>→</span></a>
@@ -46,12 +53,17 @@
         </div>
       </div>
       <aside class="hero-aside" aria-label="Статус лаборатории">
-        <small>LAB / 01</small>
-        <div class="orbit"><i></i><i></i><b>8</b></div>
+        <small>AI ECOSYSTEM</small>
+        <div class="solar-system" aria-hidden="true">
+          <div class="corporate-core"><b>CORPORATE</b><strong>IT</strong><small>SECURE PERIMETER</small></div>
+          <div class="system-orbit orbit-ops"><span class="platform-planet"><b>OPS</b><i></i></span></div>
+          <div class="system-orbit orbit-sec"><span class="platform-planet"><b>SEC</b><i></i></span></div>
+          <div class="system-orbit orbit-dec"><span class="platform-planet"><b>DEC</b><i></i></span></div>
+        </div>
         <dl>
-          <div><dt>Агенты</dt><dd>08 online</dd></div>
-          <div><dt>Платформы</dt><dd>03 systems</dd></div>
-          <div><dt>Контроль</dt><dd>Human / 100%</dd></div>
+          <div><dt>Орбиты</dt><dd>03 AI PLATFORMS</dd></div>
+          <div><dt>Агенты</dt><dd>08 SHARED ROLES</dd></div>
+          <div><dt>Полномочия</dt><dd>HUMAN / 100%</dd></div>
         </dl>
       </aside>
     </section>
@@ -75,8 +87,11 @@
             <button class="scenario" type="button" role="tab" aria-selected="false" data-scenario="security">
               <span>02</span><b>AI SECURITY<small>CISO Daily Brief</small></b><i>↗</i>
             </button>
+            <button class="scenario" type="button" role="tab" aria-selected="false" data-scenario="redteam">
+              <span>03</span><b>RED TEAM<small>Проверка детектирования</small></b><i>↗</i>
+            </button>
             <button class="scenario" type="button" role="tab" aria-selected="false" data-scenario="decision">
-              <span>03</span><b>AI DECISION<small>Совет AI-директоров</small></b><i>↗</i>
+              <span>04</span><b>AI DECISION<small>Совет AI-директоров</small></b><i>↗</i>
             </button>
           </div>
           <div class="legend"><span><i></i>источник</span><span><i></i>агенты</span><span><i></i>человек</span></div>
@@ -101,16 +116,19 @@
               <path id="ops-out" class="flow ops active" d="M405 90C500 90 490 210 600 210"></path>
               <path id="security-in" class="flow security" d="M130 210C200 210 220 210 275 210"></path>
               <path id="security-out" class="flow security" d="M405 210C480 210 530 210 600 210"></path>
+              <path id="redteam-in" class="flow redteam" d="M130 277C190 277 220 210 275 210"></path>
+              <path id="redteam-out" class="flow redteam" d="M405 210C480 210 530 210 600 210"></path>
               <path id="decision-in" class="flow decision" d="M130 330C200 330 220 330 275 330"></path>
               <path id="decision-out" class="flow decision" d="M405 330C500 330 490 210 600 210"></path>
             </g>
 
             <g class="map-node source active" data-map="ops" transform="translate(20 65)"><rect width="110" height="50" rx="8"></rect><text x="14" y="22">ZABBIX</text><text class="sub" x="14" y="38">metrics / logs</text></g>
             <g class="map-node source" data-map="security" transform="translate(20 185)"><rect width="110" height="50" rx="8"></rect><text x="14" y="22">WAZUH</text><text class="sub" x="14" y="38">SIEM / CTEM</text></g>
+            <g class="map-node source red-node" data-map="redteam" transform="translate(20 252)"><rect width="110" height="50" rx="8"></rect><text x="14" y="22">RED TEAM</text><text class="sub" x="14" y="38">isolated range</text></g>
             <g class="map-node source" data-map="decision" transform="translate(20 305)"><rect width="110" height="50" rx="8"></rect><text x="14" y="22">1C / DWH</text><text class="sub" x="14" y="38">business data</text></g>
 
             <g class="map-node platform active" data-map="ops" transform="translate(275 57)"><rect width="130" height="66" rx="10"></rect><circle cx="18" cy="18" r="4"></circle><text x="18" y="39">AI OPS</text><text class="sub" x="18" y="54">3 agents ready</text></g>
-            <g class="map-node platform" data-map="security" transform="translate(275 177)"><rect width="130" height="66" rx="10"></rect><circle cx="18" cy="18" r="4"></circle><text x="18" y="39">AI SECURITY</text><text class="sub" x="18" y="54">6 agents ready</text></g>
+            <g class="map-node platform" data-map="security redteam" transform="translate(275 177)"><rect width="130" height="66" rx="10"></rect><circle cx="18" cy="18" r="4"></circle><text x="18" y="39">AI SECURITY</text><text class="sub" x="18" y="54">6 agents ready</text></g>
             <g class="map-node platform" data-map="decision" transform="translate(275 297)"><rect width="130" height="66" rx="10"></rect><circle cx="18" cy="18" r="4"></circle><text x="18" y="39">AI DECISION</text><text class="sub" x="18" y="54">4 roles ready</text></g>
 
             <g class="map-node human" transform="translate(600 177)"><rect width="48" height="66" rx="10"></rect><circle cx="24" cy="18" r="5"></circle><text x="24" y="40" text-anchor="middle">TG</text><text class="sub" x="24" y="55" text-anchor="middle">HUMAN</text></g>
