@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AI Fabric — операционный контур AI Innovation Lab: конвейер задач, гейты и человеческое «ДА».">
+  <title>AI Fabric · AI Innovation Lab</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    :root{--red:#e0564c}
+    html[data-theme="light"]{--red:#c03b32}
+    .fab-hero{width:min(var(--max),calc(100% - 48px));margin:auto;padding:80px 0 55px}
+    .fab-hero h1{font-size:clamp(2.6rem,5vw,4.6rem);line-height:1.04}
+    .fab-hero .hero-lede{max-width:760px}
+
+    .fabric-shell{width:min(1560px,calc(100% - 32px));margin:auto;border:1px solid var(--line2);border-radius:9px;overflow:hidden;background:var(--panel);box-shadow:0 45px 100px rgba(0,0,0,.27)}
+    .fab-svg{display:block;width:100%;height:auto;background:var(--soft)}
+    .rail-t{font:8.5px var(--mono);fill:var(--faint);letter-spacing:.14em}
+    .rail-l{stroke:var(--line);stroke-width:1;stroke-dasharray:2 6}
+    .track{stroke:var(--line2);stroke-width:1.6}
+    .trackflow{stroke:var(--accent);stroke-width:1.6;stroke-dasharray:6 14;opacity:.4;animation:fabflow 1.4s linear infinite}
+    @keyframes fabflow{to{stroke-dashoffset:-20}}
+    .st-ring{fill:var(--panel);stroke:var(--line2);stroke-width:1.4}
+    .st-ring.hot{stroke:var(--accent);filter:drop-shadow(0 0 6px rgba(255,112,67,.4))}
+    .st-ico{font:14px var(--mono);fill:var(--muted)}
+    .st-name{font:600 11px var(--mono);fill:var(--text);letter-spacing:.06em}
+    .st-cap{font:8px var(--mono);fill:var(--faint)}
+    .chip-r{fill:var(--accent)}
+    .chip-t{font:600 11px var(--mono);fill:#fff}
+    .fab-chip.done .chip-r{fill:var(--green)}
+    .float-t{font:600 11.5px var(--mono)}
+    .float-t.ok{fill:var(--green)}
+    .float-t.bad{fill:var(--red)}
+    .float-t.info{fill:var(--muted)}
+    .gate-t{font:600 10.5px var(--mono);fill:var(--amber);transition:opacity .3s}
+    .pulse-ring{fill:none;stroke:var(--green);stroke-width:2}
+
+    .fab-readout{display:flex;flex-wrap:wrap;gap:8px 22px;padding:14px 20px;border-top:1px solid var(--line);color:var(--faint);font:9px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+    .fab-readout b{color:var(--text);font-weight:600}
+    .fab-readout .ok b{color:var(--green)}
+    .fab-readout .money b{color:var(--accent)}
+    .fab-legend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 20px 16px;color:var(--faint);font:8.5px var(--mono)}
+    .fab-legend i{display:inline-block;width:8px;height:8px;margin-right:6px;border-radius:2px}
+    .fab-legend .c1 i{background:var(--accent)}
+    .fab-legend .c2 i{background:var(--amber)}
+    .fab-legend .c3 i{background:var(--green)}
+
+    .fab-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .fab-card{padding:30px;border:1px solid var(--line);border-radius:7px;background:var(--panel)}
+    .fab-card>span{color:var(--accent);font:9px var(--mono)}
+    .fab-card h3{margin:14px 0 12px;font:500 1.35rem var(--mono);letter-spacing:-.03em}
+    .fab-card p{margin:0;color:var(--muted);line-height:1.7;font-size:.86rem}
+
+    .stack{display:flex;overflow-x:auto;padding-bottom:8px}
+    .layer{flex:1;min-width:128px;position:relative;background:var(--panel);border:1px solid var(--line);padding:16px 14px 13px;margin-right:26px;border-radius:7px;animation:lglow 12s infinite}
+    .layer:last-child{margin-right:0}
+    .layer::after{content:"→";position:absolute;right:-21px;top:50%;transform:translateY(-55%);color:var(--faint);font-size:14px}
+    .layer:last-child::after{display:none}
+    .layer .t{font:600 10.5px var(--mono);color:var(--text);letter-spacing:.04em;margin-bottom:6px;text-transform:uppercase}
+    .layer .d{font-size:11px;color:var(--faint);line-height:1.45}
+    .layer:nth-child(1){animation-delay:0s}.layer:nth-child(2){animation-delay:2s}
+    .layer:nth-child(3){animation-delay:4s}.layer:nth-child(4){animation-delay:6s}
+    .layer:nth-child(5){animation-delay:8s}.layer:nth-child(6){animation-delay:10s}
+    @keyframes lglow{0%,4%{border-color:var(--accent);box-shadow:0 0 16px var(--wash)}12%,100%{border-color:var(--line);box-shadow:none}}
+    .crossband{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:18px;color:var(--faint);font:9px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+    .crossband .x{border:1px dashed var(--line2);border-radius:16px;padding:5px 13px;color:var(--muted)}
+
+    .fab-strip{margin-top:60px;padding:28px 32px;border:1px solid var(--line);border-left:2px solid var(--accent);border-radius:7px;background:var(--panel)}
+    .fab-strip p{margin:0;color:var(--muted);line-height:1.75;max-width:900px}
+    .fab-strip b{color:var(--text)}
+
+    @media(max-width:880px){.fab-cards{grid-template-columns:1fr}.fab-hero{padding:55px 0 40px}}
+    @media(max-width:600px){.fab-hero{width:calc(100% - 28px)}.fabric-shell{width:calc(100% - 14px)}.fab-strip{padding:22px}}
+    @media(prefers-reduced-motion:reduce){.layer,.trackflow{animation:none!important}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#line">К конвейеру</a>
+  <div class="ambient" aria-hidden="true"></div>
+
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="AI Innovation Lab — на главную">
+        <svg viewBox="0 0 36 36" aria-hidden="true">
+          <rect x="1" y="1" width="34" height="34" rx="10"></rect>
+          <path d="M10 11l13 7-13 7M23 18h4"></path>
+          <circle cx="10" cy="11" r="2"></circle>
+          <circle cx="10" cy="25" r="2"></circle>
+          <circle class="out" cx="27" cy="18" r="2.5"></circle>
+        </svg>
+        <span><b>AI</b> INNOVATION LAB<small>AI FABRIC · ENTERPRISE AI OPERATIONS</small></span>
+      </a>
+      <nav aria-label="Навигация">
+        <a href="../">На главную</a>
+        <a href="#line">Конвейер</a>
+        <a href="#principles">Принципы</a>
+        <a href="#architecture">Архитектура</a>
+      </nav>
+      <div class="preferences">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Переключить тему"><span aria-hidden="true">☼</span><b id="theme-label">LIGHT</b></button>
+        <div class="lang-switch" role="group" aria-label="Язык">
+          <button class="active" type="button" data-lang="ru" aria-pressed="true">RU</button>
+          <i></i>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+      <a class="header-cta" href="../#lab">LIVE LAB ↗</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="fab-hero">
+      <p class="overline"><i></i> AI FABRIC · ОПЕРАЦИОННЫЙ КОНТУР ЛАБОРАТОРИИ</p>
+      <h1>Инфраструктура нового поколения:<br>люди и AI-агенты <em>в одном контуре</em></h1>
+      <p class="hero-lede">Разговор в индустрии уходит от «какую LLM выбрать?» к взрослому вопросу: как построить управляемую среду, где люди и AI-агенты вместе ведут работу — от идеи до продакшена. Ниже — наш контур в действии: AI анализирует, предлагает и оформляет. Человек решает.</p>
+    </section>
+
+    <section class="fabric-shell" id="line" aria-labelledby="line-title">
+      <div class="lab-topbar">
+        <div class="window-lights"><i></i><i></i><i></i></div>
+        <p><b>AILAB://</b> AI_FABRIC_CONVEYOR</p>
+        <span><i></i> PIPELINE RUNNING</span>
+      </div>
+      <h2 id="line-title" class="sr-only" style="position:absolute;left:-9999px">Конвейер задач</h2>
+      <svg class="fab-svg" id="fab" viewBox="0 0 1000 430" role="img" aria-label="Анимированный конвейер: анализ, задачи, работа, приёмка, прод. Сверху — governance и security, снизу — observability и FinOps.">
+        <line class="rail-l" x1="40" y1="58" x2="960" y2="58"/>
+        <text class="rail-t" x="40" y="42">GOVERNANCE · SECURITY · IAM &amp; POLICIES</text>
+        <line class="rail-l" x1="40" y1="376" x2="960" y2="376"/>
+        <text class="rail-t" x="40" y="400">OBSERVABILITY · FINOPS · KPI/ROI</text>
+        <line class="track" x1="70" y1="218" x2="930" y2="218"/>
+        <line class="trackflow" x1="70" y1="218" x2="930" y2="218"/>
+        <g id="stations"></g>
+        <g id="chips"></g>
+        <g id="floats"></g>
+      </svg>
+      <div class="fab-readout">
+        <span class="ok">в проде: <b id="sProd">0</b></span>
+        <span>human sign-off: <b id="sYes">0 × ДА</b></span>
+        <span>гейт остановил: <b id="sGate">0</b></span>
+        <span class="money">затраты AI: <b id="sMoney">₽ 0,00</b></span>
+        <span>токены: <b id="sTok">0k</b></span>
+      </div>
+      <div class="fab-legend">
+        <span class="c1"><i></i>карточка — задача из трекера</span>
+        <span class="c2"><i></i>вспышка — сработал гейт</span>
+        <span class="c3"><i></i>зелёная — принята человеком</span>
+      </div>
+    </section>
+
+    <section class="section" id="principles">
+      <div class="section-heading reveal">
+        <div><p class="section-code">01 / RULES OF THE FABRIC</p><h2>Автоматизировано всё,<br><em>кроме решения.</em></h2></div>
+        <p>Конвейер убирает налог на вспоминание и не даёт начать задачу, которая не додумана. Решения он не принимает.</p>
+      </div>
+      <div class="fab-cards">
+        <article class="fab-card reveal"><span>01</span>
+          <h3>Human in the loop</h3>
+          <p>Ни одно изменение наружу — в трекер, в код, в прод — без явного «ДА» человека. AI предлагает и оформляет, решение не делегируется.</p>
+        </article>
+        <article class="fab-card reveal"><span>02</span>
+          <h3>Управляемость по умолчанию</h3>
+          <p>У агентов — свои identity, политики и гейты, как у людей. Гейт ловит забывчивость до того, как она станет техдолгом.</p>
+        </article>
+        <article class="fab-card reveal"><span>03</span>
+          <h3>Экономика видна</h3>
+          <p>Каждый токен посчитан: стоимость → экономия → ROI. Инвестиции в AI защищаются цифрами из леджера, а не ощущениями.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="architecture">
+      <div class="section-heading reveal">
+        <div><p class="section-code">02 / NEXT-GEN STACK</p><h2>Архитектура, к которой<br><em>идёт индустрия.</em></h2></div>
+        <p>Microsoft, Google и Snowflake в 2026-м описывают один и тот же стек управляемого Enterprise AI. Мы собрали его в миниатюре — и он работает.</p>
+      </div>
+      <div class="stack reveal">
+        <div class="layer"><div class="t">Business Process</div><div class="d">планёрки · SOC · приёмка подрядчика</div></div>
+        <div class="layer"><div class="t">AI Agent / Human</div><div class="d">агенты + человек с правом «ДА»</div></div>
+        <div class="layer"><div class="t">MCP / AI Gateway</div><div class="d">оркестратор · tool-use loop</div></div>
+        <div class="layer"><div class="t">IAM &amp; Policies</div><div class="d">RBAC · confirmation pattern</div></div>
+        <div class="layer"><div class="t">Data &amp; APIs</div><div class="d">DWH · ERP · корп. системы</div></div>
+        <div class="layer"><div class="t">Infrastructure</div><div class="d">хосты · контейнеры · CI</div></div>
+      </div>
+      <div class="crossband reveal">
+        <span>поперёк всех слоёв:</span>
+        <span class="x">Observability</span><span class="x">Security</span>
+        <span class="x">FinOps</span><span class="x">Governance</span><span class="x">KPI / ROI</span>
+      </div>
+      <div class="fab-strip reveal">
+        <p><b>Почему это важно.</b> Конкурентное преимущество ближайших лет — не доступ к моделям, он есть у всех. Преимущество — управляемый контур, в котором тысячи решений AI ежедневно превращаются в проверяемые действия: с владельцем, с политикой, с ценой и с человеческим «ДА» в нужных местах. Такой контур мы строим и проверяем на себе.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><p class="section-code">AI INNOVATION LAB</p><h2>Фабрика работает.<br><em>Решает — человек.</em></h2></div>
+    <nav><a href="../#lab">Live Lab ↗</a><a href="../#publications">Публикации →</a><a href="#top">Наверх ↑</a></nav>
+  </footer>
+
+  <script src="fabric.js"></script>
+</body>
+</html>
