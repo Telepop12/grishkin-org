@@ -8,8 +8,8 @@ const en = {
   "Инфраструктура нового поколения:": "Next-generation infrastructure:",
   "люди и AI-агенты": "humans and AI agents",
   "в одном контуре": "in one loop",
-  "Разговор в индустрии уходит от «какую LLM выбрать?» к взрослому вопросу: как построить управляемую среду, где люди и AI-агенты вместе ведут работу — от идеи до продакшена. Ниже — наш контур в действии: AI анализирует, предлагает и оформляет. Человек решает.":
-    "The industry conversation is moving on from “which LLM should we pick?” to a more mature question: how do you build a governed environment where humans and AI agents work together — from idea to production. Below is our loop in action: AI analyses, proposes and prepares. The human decides.",
+  "Мы разработали управляемую среду непрерывной интеграции AI в корпоративный контур: люди и AI-агенты ведут работу вместе — от идеи до продакшена. Ниже этот контур в действии: AI анализирует, предлагает и оформляет. Человек решает.":
+    "We built a governed environment for continuous AI integration into the corporate loop: humans and AI agents work side by side — from idea to production. Below is that loop in action: AI analyses, proposes and prepares. The human decides.",
   "Конвейер задач": "Task conveyor",
   "в проде:": "in prod:",
   "гейт остановил:": "stopped by gate:",
@@ -18,7 +18,7 @@ const en = {
   "карточка — задача из трекера": "card — a task from the tracker",
   "вспышка — сработал гейт": "flash — the gate fired",
   "зелёная — принята человеком": "green — accepted by a human",
-  "Автоматизировано всё,": "Everything is automated,",
+  "Мы автоматизировали всё,": "We automated everything,",
   "кроме решения.": "except the decision.",
   "Конвейер убирает налог на вспоминание и не даёт начать задачу, которая не додумана. Решения он не принимает.":
     "The conveyor removes the tax of remembering and refuses to start a task that has not been thought through. It makes no decisions.",
@@ -28,9 +28,9 @@ const en = {
   "Управляемость по умолчанию": "Governed by default",
   "У агентов — свои identity, политики и гейты, как у людей. Гейт ловит забывчивость до того, как она станет техдолгом.":
     "Agents get their own identities, policies and gates — just like people. The gate catches forgetfulness before it becomes tech debt.",
-  "Экономика видна": "Visible economics",
-  "Каждый токен посчитан: стоимость → экономия → ROI. Инвестиции в AI защищаются цифрами из леджера, а не ощущениями.":
-    "Every token is accounted for: cost → savings → ROI. AI investments are defended with ledger numbers, not gut feeling.",
+  "Контроль расходов": "Cost control",
+  "Каждый токен посчитан: стоимость → экономия → ROI. Мы защищаем инвестиции в AI цифрами из леджера, а не ощущениями.":
+    "Every token is accounted for: cost → savings → ROI. We defend our AI investments with ledger numbers, not gut feeling.",
   "Архитектура, к которой": "The architecture the",
   "идёт индустрия.": "industry is heading to.",
   "Microsoft, Google и Snowflake в 2026-м описывают один и тот же стек управляемого Enterprise AI. Мы собрали его в миниатюре — и он работает.":
