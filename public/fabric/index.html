@@ -58,26 +58,33 @@
     .fab-card h3{margin:14px 0 12px;font:500 1.35rem var(--mono);letter-spacing:-.03em}
     .fab-card p{margin:0;color:var(--muted);line-height:1.7;font-size:.86rem}
 
-    .architecture-frame{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:14px;align-items:stretch}
-    .stack{display:flex;flex-direction:column;gap:12px}
-    .layer{position:relative;display:grid;grid-template-columns:minmax(210px,.7fr) 1fr;align-items:center;min-height:62px;background:var(--panel);border:1px solid var(--line);padding:14px 18px;border-radius:7px;transition:border-color .25s}
-    .layer:hover{border-color:var(--accent)}
-    .layer::after{content:"↓";position:absolute;left:50%;bottom:-15px;transform:translateX(-50%);color:var(--faint);font:11px var(--mono);z-index:2}
-    .layer:last-child::after{display:none}
-    .layer .t{font:600 10.5px var(--mono);color:var(--text);letter-spacing:.04em;text-transform:uppercase}
-    .layer .d{font-size:11px;color:var(--faint);line-height:1.45}
-    .crossband{display:flex;flex-direction:column;padding:28px;border:1px solid var(--line);border-left:2px solid var(--accent);border-radius:7px;background:linear-gradient(180deg,var(--wash),transparent 45%),var(--panel)}
-    .crossband-title{color:var(--accent);font:600 9px var(--mono);letter-spacing:.14em}
-    .crossband p{margin:18px 0 24px;color:var(--muted);font-size:.84rem;line-height:1.7}
-    .crossband-items{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto}
-    .crossband .x{padding:8px 10px;border:1px solid var(--line2);border-radius:4px;color:var(--muted);font:8px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+    .arch{display:grid;grid-template-columns:minmax(0,1fr) 210px;border:1px solid var(--line);border-radius:7px;background:var(--panel);overflow:hidden}
+    .arch-stack{min-width:0}
+    .arch-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px;padding:15px 22px;border-bottom:1px solid var(--line);background:linear-gradient(90deg,var(--wash),transparent 65%)}
+    .arch-q{color:var(--text);font:600 12.5px var(--mono)}
+    .arch-src{color:var(--faint);font:8px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+    .arch-row{position:relative;display:grid;grid-template-columns:200px minmax(0,1fr);gap:22px;align-items:center;min-height:54px;padding:10px 22px;border-top:1px solid var(--line)}
+    .arch-row:first-of-type{border-top:0}
+    .arch-row:after{content:"";position:absolute;right:-4px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--wash)}
+    .arch-name{font:600 10.5px var(--mono);color:var(--text);letter-spacing:.02em}
+    .arch-name small{display:block;margin-top:4px;color:var(--faint);font:7.5px var(--mono);letter-spacing:.11em}
+    .arch-step{color:var(--muted);font-size:.82rem;line-height:1.5}
+    .arch-step b{color:var(--text);font-weight:600}
+    .arch-rail{display:flex;flex-direction:column;padding:18px 20px;border-left:1px solid var(--accent);background:var(--soft)}
+    .rail-title{color:var(--accent);font:600 8.5px var(--mono);letter-spacing:.14em}
+    .arch-rail p{margin:12px 0 0;color:var(--faint);font-size:.74rem;line-height:1.55}
+    .rail-items{display:grid;gap:6px;margin:auto 0}
+    .rail-items .x{padding:7px 9px;border:1px solid var(--line2);border-radius:4px;color:var(--muted);font:8px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+    .arch-note{max-width:760px;margin:18px 0 0;color:var(--faint);font-size:.82rem;line-height:1.6}
 
     .fab-strip{margin-top:60px;padding:28px 32px;border:1px solid var(--line);border-left:2px solid var(--accent);border-radius:7px;background:var(--panel)}
     .fab-strip p{margin:0;color:var(--muted);line-height:1.75;max-width:900px}
     .fab-strip b{color:var(--text)}
 
-    @media(max-width:880px){.fab-cards{grid-template-columns:1fr}.fab-hero{padding:55px 0 40px}.fabric-overview{padding-top:70px}.architecture-frame{grid-template-columns:1fr}.crossband-items{grid-template-columns:repeat(3,1fr)}.pipeline-section .section-heading{grid-template-columns:1fr}}
-    @media(max-width:600px){.fab-hero{width:auto;margin-inline:14px}.fab-hero .hero-lede{max-width:100%;overflow-wrap:anywhere}.fabric-shell{margin:0}.fab-strip{padding:22px}.fab-readout span:nth-child(3){display:none}.fab-event{grid-template-columns:6px 1fr}.fab-event b{display:none}.pipeline-section{padding-bottom:105px}.layer{grid-template-columns:1fr;gap:5px}.crossband{padding:22px}.crossband-items{grid-template-columns:1fr 1fr}#line-title{font-size:clamp(1.6rem,7.4vw,2.35rem);white-space:normal}}
+    @media(max-width:880px){.fab-cards{grid-template-columns:1fr}.fab-hero{padding:55px 0 40px}.fabric-overview{padding-top:70px}.pipeline-section .section-heading{grid-template-columns:1fr}
+      .arch{grid-template-columns:1fr}.arch-row:after{display:none}.arch-rail{border-left:0;border-top:1px solid var(--line)}.rail-items{grid-template-columns:repeat(3,1fr);margin-top:16px;padding-top:0}}
+    @media(max-width:600px){.fab-hero{width:auto;margin-inline:14px}.fab-hero .hero-lede{max-width:100%;overflow-wrap:anywhere}.fabric-shell{margin:0}.fab-strip{padding:22px}.fab-readout span:nth-child(3){display:none}.fab-event{grid-template-columns:6px 1fr}.fab-event b{display:none}.pipeline-section{padding-bottom:105px}#line-title{font-size:clamp(1.6rem,7.4vw,2.35rem);white-space:normal}
+      .arch-row{grid-template-columns:1fr;gap:7px;padding:14px 18px}.arch-top{padding:14px 18px}.rail-items{grid-template-columns:1fr 1fr}}
     @media(max-width:600px){.graph-scroll{overflow-x:auto}.graph-scroll .fab-svg{width:820px;max-width:none}}
   </style>
 </head>
@@ -127,25 +134,48 @@
         <div><p class="section-code">01 / ARCHITECTURE</p><h2>Архитектура<br><em>AI Fabric.</em></h2></div>
         <p>Бизнес-процесс, агенты, инструменты, политики и данные соединены в один наблюдаемый контур — без скрытых переходов между слоями.</p>
       </div>
-      <div class="architecture-frame">
-        <div class="stack reveal">
-          <div class="layer"><div class="t">Business Process</div><div class="d">планёрки · SOC · приёмка подрядчика</div></div>
-          <div class="layer"><div class="t">AI Agent / Human</div><div class="d">агенты + человек с правом «ДА»</div></div>
-          <div class="layer"><div class="t">Agent Identity + Registry</div><div class="d">владелец · роль · полномочия</div></div>
-          <div class="layer"><div class="t">Gateway / Policy / Orchestration</div><div class="d">маршрутизация · tools · гейты</div></div>
-          <div class="layer"><div class="t">Models + Enterprise Data + APIs</div><div class="d">LLM · DWH · ERP · корпоративные API</div></div>
-          <div class="layer"><div class="t">Enterprise Systems</div><div class="d">сервисы · хосты · контейнеры · CI</div></div>
+      <div class="arch reveal">
+        <div class="arch-stack">
+          <div class="arch-top">
+            <span class="arch-q">«Что заканчивается на складе и как это влияет на финансы?»</span>
+            <span class="arch-src">вопрос директора · рабочий чат</span>
+          </div>
+          <div class="arch-row">
+            <div class="arch-name">Бизнес-процесс<small>BUSINESS PROCESS</small></div>
+            <div class="arch-step">Вопрос задан обычным сообщением — без формы, отчёта и регламента.</div>
+          </div>
+          <div class="arch-row">
+            <div class="arch-name">Агенты и человек<small>AI AGENT / HUMAN</small></div>
+            <div class="arch-step">Агент-директор собирает роли: склад, бухгалтерию, продажи.</div>
+          </div>
+          <div class="arch-row">
+            <div class="arch-name">Полномочия<small>AGENT IDENTITY + REGISTRY</small></div>
+            <div class="arch-step">У каждой роли свой доступ: агент работает только с разрешёнными витринами.</div>
+          </div>
+          <div class="arch-row">
+            <div class="arch-name">Маршрут и политики<small>GATEWAY / POLICY / ORCHESTRATION</small></div>
+            <div class="arch-step">Оркестратор распределяет подзапросы, гейты запрещают менять данные.</div>
+          </div>
+          <div class="arch-row">
+            <div class="arch-name">Модели и данные<small>MODELS + ENTERPRISE DATA + APIS</small></div>
+            <div class="arch-step">Витрины поверх ERP: <b>8 позиций класса C</b> и кабель класса A без движения с 2022 года.</div>
+          </div>
+          <div class="arch-row">
+            <div class="arch-name">Инфраструктура<small>ENTERPRISE SYSTEMS</small></div>
+            <div class="arch-step">Всё это выполняется на серверах и в контейнерах лаборатории.</div>
+          </div>
         </div>
-        <aside class="crossband reveal">
-          <span class="crossband-title">СКВОЗНОЙ КОНТУР</span>
-          <p>Эти функции не образуют отдельный этаж. Они действуют на каждом уровне — от бизнес-процесса до инфраструктуры.</p>
-          <div class="crossband-items">
+        <aside class="arch-rail">
+          <span class="rail-title">СКВОЗНОЙ КОНТУР</span>
+          <p>Не отдельный этаж — работает на каждом уровне сразу.</p>
+          <div class="rail-items">
             <span class="x">Security</span><span class="x">Governance</span>
             <span class="x">Observability</span><span class="x">AI FinOps</span>
             <span class="x">Skills</span><span class="x">Business KPI</span>
           </div>
         </aside>
       </div>
+      <p class="arch-note reveal">Запрос идёт вниз — до данных. Ответ поднимается обратно, и на уровне агентов человек решает, что с ним делать.</p>
       <div class="fab-strip reveal">
         <p><b>Управленческий вывод.</b> Технологический стек постепенно становится стандартным. Преимущество возникает там, где его связывают с процессами, людьми, governance и измеримым экономическим эффектом.</p>
       </div>

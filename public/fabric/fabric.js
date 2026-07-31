@@ -37,20 +37,26 @@ const en = {
   "AI Fabric.": "AI Fabric.",
   "Бизнес-процесс, агенты, инструменты, политики и данные соединены в один наблюдаемый контур — без скрытых переходов между слоями.":
     "Business processes, agents, tools, policies and data are connected in one observable loop — with no hidden transitions between layers.",
-  "планёрки · SOC · приёмка подрядчика": "stand-ups · SOC · contractor acceptance",
-  "агенты + человек с правом «ДА»": "agents + a human holding the “YES”",
-  "владелец · роль · полномочия": "owner · role · authority",
-  "маршрутизация · tools · гейты": "routing · tools · gates",
-  "LLM · DWH · ERP · корпоративные API": "LLM · DWH · ERP · enterprise APIs",
-  "сервисы · хосты · контейнеры · CI": "services · hosts · containers · CI",
-  "оркестратор · tool-use loop": "orchestrator · tool-use loop",
-  "RBAC · confirmation pattern": "RBAC · confirmation pattern",
-  "DWH · ERP · корп. системы": "DWH · ERP · corporate systems",
-  "хосты · контейнеры · CI": "hosts · containers · CI",
-  "поперёк всех слоёв:": "across every layer:",
+  "«Что заканчивается на складе и как это влияет на финансы?»": "“What is running out of stock, and how does it affect finance?”",
+  "вопрос директора · рабочий чат": "a director's question · team chat",
+  "Бизнес-процесс": "Business process",
+  "Вопрос задан обычным сообщением — без формы, отчёта и регламента.": "The question is asked as a plain message — no form, no report, no procedure.",
+  "Агенты и человек": "Agents and human",
+  "Агент-директор собирает роли: склад, бухгалтерию, продажи.": "The director agent brings in the roles: warehouse, accounting, sales.",
+  "Полномочия": "Authority",
+  "У каждой роли свой доступ: агент работает только с разрешёнными витринами.": "Each role has its own access: an agent only works with the data marts it is allowed to see.",
+  "Маршрут и политики": "Routing and policies",
+  "Оркестратор распределяет подзапросы, гейты запрещают менять данные.": "The orchestrator distributes sub-queries; gates forbid any change to the data.",
+  "Модели и данные": "Models and data",
+  "Витрины поверх ERP:": "Data marts on top of the ERP:",
+  "8 позиций класса C": "eight class C items",
+  "и кабель класса A без движения с 2022 года.": "and a class A cable with no movement since 2022.",
+  "Инфраструктура": "Infrastructure",
+  "Всё это выполняется на серверах и в контейнерах лаборатории.": "All of it runs on the lab's own servers and containers.",
   "СКВОЗНОЙ КОНТУР": "CROSS-CUTTING CONTROL PLANE",
-  "Эти функции не образуют отдельный этаж. Они действуют на каждом уровне — от бизнес-процесса до инфраструктуры.":
-    "These functions do not form a separate layer. They operate at every level — from the business process to infrastructure.",
+  "Не отдельный этаж — работает на каждом уровне сразу.": "Not a separate floor — it operates at every level at once.",
+  "Запрос идёт вниз — до данных. Ответ поднимается обратно, и на уровне агентов человек решает, что с ним делать.":
+    "The request travels down to the data. The answer comes back up, and at the agent level a human decides what to do with it.",
   "Управленческий вывод.": "Management takeaway.",
   "Технологический стек постепенно становится стандартным. Преимущество возникает там, где его связывают с процессами, людьми, governance и измеримым экономическим эффектом.":
     "The technology stack is gradually becoming standard. Advantage comes from connecting it to processes, people, governance and measurable economic impact.",
@@ -250,7 +256,9 @@ document.querySelector("#theme-toggle").addEventListener("click", () => {
   updateThemeControl();
 });
 
-const savedTheme = localStorage.getItem("ailab-theme");
+const savedTheme = ["light", "dark"].includes(query.get("theme"))
+  ? query.get("theme")
+  : localStorage.getItem("ailab-theme");
 document.documentElement.dataset.theme = savedTheme === "light" || savedTheme === "dark"
   ? savedTheme
   : matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
