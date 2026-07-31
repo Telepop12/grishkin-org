@@ -1,5 +1,5 @@
 const assert = require("node:assert/strict");
-const { agentLayouts, curves, point } = require("../pipeline-layout.js");
+const { agentLayouts, curves, point } = require("../public/pipeline-layout.js");
 
 for (const scenario of ["ops", "security", "redteam", "decision"]) {
   const layout = agentLayouts[scenario];
