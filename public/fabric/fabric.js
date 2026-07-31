@@ -1,27 +1,29 @@
 const en = {
-  "К конвейеру": "Skip to the conveyor",
+  "К графу выполнения": "Skip to the execution graph",
   "На главную": "Home",
-  "Конвейер": "Conveyor",
+  "Процесс": "Process",
   "Принципы": "Principles",
   "Архитектура": "Architecture",
-  "AI FABRIC · ОПЕРАЦИОННЫЙ КОНТУР ЛАБОРАТОРИИ": "AI FABRIC · THE LAB'S OPERATING LOOP",
-  "Инфраструктура нового поколения:": "Next-generation infrastructure:",
-  "люди и AI-агенты": "humans and AI agents",
-  "в одном контуре": "in one loop",
-  "Мы разработали управляемую среду непрерывной интеграции AI в корпоративный контур: люди и AI-агенты ведут работу вместе — от идеи до продакшена. Ниже этот контур в действии: AI анализирует, предлагает и оформляет. Человек решает.":
-    "We built a governed environment for continuous AI integration into the corporate loop: humans and AI agents work side by side — from idea to production. Below is that loop in action: AI analyses, proposes and prepares. The human decides.",
-  "Конвейер задач": "Task conveyor",
-  "в проде:": "in prod:",
-  "гейт остановил:": "stopped by gate:",
-  "затраты AI:": "AI spend:",
-  "токены:": "tokens:",
-  "карточка — задача из трекера": "card — a task from the tracker",
-  "вспышка — сработал гейт": "flash — the gate fired",
-  "зелёная — принята человеком": "green — accepted by a human",
-  "Мы автоматизировали всё,": "We automated everything,",
-  "кроме решения.": "except the decision.",
-  "Конвейер убирает налог на вспоминание и не даёт начать задачу, которая не додумана. Решения он не принимает.":
-    "The conveyor removes the tax of remembering and refuses to start a task that has not been thought through. It makes no decisions.",
+  "AI FABRIC · ИНЖЕНЕРНЫЙ КОНТУР": "AI FABRIC · ENGINEERING LOOP",
+  "Управляемый путь": "A governed path",
+  "от задачи до": "from a task to a",
+  "работающей AI-системы": "working AI system",
+  "AI Fabric связывает анализ, проектирование, работу агентов, проверки и внедрение в один воспроизводимый процесс. AI готовит действие. Человек разрешает его выполнить.":
+    "AI Fabric connects analysis, design, agent work, validation and deployment in one repeatable process. AI prepares the action. A human authorises it.",
+  "Путь одной задачи": "One task, end to end",
+  "Одна задача.": "One task.",
+  "Весь контур.": "The whole loop.",
+  "Одна задача —": "One task —",
+  "весь контур.": "the whole loop.",
+  "Граф показывает не абстрактный workflow, а конкретный маршрут: кто получил контекст, где работал AI, что проверили политики и в какой точке потребовалось решение человека.":
+    "The graph shows a concrete route rather than an abstract workflow: who received the context, where AI worked, what policies checked and where a human decision was required.",
+  "задача:": "task:",
+  "этап:": "stage:",
+  "контроль:": "control:",
+  "AI готовит действие.": "AI prepares the action.",
+  "Человек решает.": "A human decides.",
+  "Процесс снимает рутину, сохраняет контекст и не пропускает неподготовленную задачу дальше. Полномочия остаются явными на каждом этапе.":
+    "The process removes routine work, preserves context and stops an unprepared task from moving forward. Authority stays explicit at every stage.",
   "Human in the loop": "Human in the loop",
   "Ни одно изменение наружу — в трекер, в код, в прод — без явного «ДА» человека. AI предлагает и оформляет, решение не делегируется.":
     "No outward change — to the tracker, the code or production — without an explicit human “YES”. AI proposes and prepares; the decision is never delegated.",
@@ -31,21 +33,31 @@ const en = {
   "Контроль расходов": "Cost control",
   "Каждый токен посчитан: стоимость → экономия → ROI. Мы защищаем инвестиции в AI цифрами из леджера, а не ощущениями.":
     "Every token is accounted for: cost → savings → ROI. We defend our AI investments with ledger numbers, not gut feeling.",
-  "Архитектура, к которой": "The architecture the",
-  "идёт индустрия.": "industry is heading to.",
-  "Microsoft, Google и Snowflake в 2026-м описывают один и тот же стек управляемого Enterprise AI. Мы собрали его в миниатюре — и он работает.":
-    "In 2026 Microsoft, Google and Snowflake all describe the same governed Enterprise AI stack. We built it in miniature — and it works.",
+  "Архитектура": "Architecture",
+  "AI Fabric.": "AI Fabric.",
+  "Бизнес-процесс, агенты, инструменты, политики и данные соединены в один наблюдаемый контур — без скрытых переходов между слоями.":
+    "Business processes, agents, tools, policies and data are connected in one observable loop — with no hidden transitions between layers.",
   "планёрки · SOC · приёмка подрядчика": "stand-ups · SOC · contractor acceptance",
   "агенты + человек с правом «ДА»": "agents + a human holding the “YES”",
+  "владелец · роль · полномочия": "owner · role · authority",
+  "маршрутизация · tools · гейты": "routing · tools · gates",
+  "LLM · DWH · ERP · корпоративные API": "LLM · DWH · ERP · enterprise APIs",
+  "сервисы · хосты · контейнеры · CI": "services · hosts · containers · CI",
   "оркестратор · tool-use loop": "orchestrator · tool-use loop",
   "RBAC · confirmation pattern": "RBAC · confirmation pattern",
   "DWH · ERP · корп. системы": "DWH · ERP · corporate systems",
   "хосты · контейнеры · CI": "hosts · containers · CI",
   "поперёк всех слоёв:": "across every layer:",
+  "СКВОЗНОЙ КОНТУР": "CROSS-CUTTING CONTROL PLANE",
+  "Эти функции не образуют отдельный этаж. Они действуют на каждом уровне — от бизнес-процесса до инфраструктуры.":
+    "These functions do not form a separate layer. They operate at every level — from the business process to infrastructure.",
+  "Управленческий вывод.": "Management takeaway.",
+  "Технологический стек постепенно становится стандартным. Преимущество возникает там, где его связывают с процессами, людьми, governance и измеримым экономическим эффектом.":
+    "The technology stack is gradually becoming standard. Advantage comes from connecting it to processes, people, governance and measurable economic impact.",
   "Почему это важно.": "Why it matters.",
-  "Конкурентное преимущество ближайших лет — не доступ к моделям, он есть у всех. Преимущество — управляемый контур, в котором тысячи решений AI ежедневно превращаются в проверяемые действия: с владельцем, с политикой, с ценой и с человеческим «ДА» в нужных местах. Такой контур мы строим и проверяем на себе.":
-    "The competitive edge of the coming years is not access to models — everyone has that. The edge is a governed loop in which thousands of AI decisions turn into verifiable actions every day: with an owner, a policy, a price tag and a human “YES” in the right places. That is the loop we build and test on ourselves.",
-  "Фабрика работает.": "The fabric runs.",
+  "Доступ к моделям сам по себе не создаёт работающую систему. Нужен воспроизводимый процесс, в котором у каждого действия есть контекст, владелец, политика, цена и человеческое подтверждение там, где меняется состояние корпоративной среды.":
+    "Access to models alone does not create a working system. A repeatable process is needed, where every action has context, an owner, a policy, a cost and human approval wherever the corporate environment changes.",
+  "AI Fabric работает.": "AI Fabric works.",
   "Решает — человек.": "The human decides.",
   "Публикации →": "Publications →",
   "Наверх ↑": "Back to top ↑",
@@ -69,17 +81,46 @@ const FL = {
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const svgNS = "http://www.w3.org/2000/svg";
 const originalText = new WeakMap();
-let currentLang = localStorage.getItem("ailab-lang") === "en" ? "en" : "ru";
+const query = new URLSearchParams(location.search);
+let currentLang = query.get("lang") === "en"
+  ? "en"
+  : query.get("lang") === "ru"
+    ? "ru"
+    : localStorage.getItem("ailab-lang") === "en" ? "en" : "ru";
 
 /* ---------- conveyor ---------- */
 const ST = [
-  { x: 110, ico: "⌕", name: "Анализ",  cap: "/standup · репо + трекер" },
-  { x: 310, ico: "▤", name: "Задачи",  cap: "issues · DoD обязателен" },
-  { x: 510, ico: "⚙", name: "Работа",  cap: "код · гейт инвариантов" },
-  { x: 710, ico: "✓", name: "Приёмка", cap: "DoD против факта · «ДА»" },
-  { x: 910, ico: "▲", name: "Прод",    cap: "деплой · CI" }
+  {
+    x: 95, y: 190,
+    ru: { name: "Контекст", cap: "репо · трекер", stage: "КОНТЕКСТ", control: "ПОЛИТИКИ ПРИМЕНЕНЫ", time: "00:01", event: "Контекст задачи собран из stand-up, репозитория и трекера." },
+    en: { name: "Context", cap: "repo · tracker", stage: "CONTEXT", control: "POLICIES APPLIED", time: "00:01", event: "Task context collected from the stand-up, repository and tracker." }
+  },
+  {
+    x: 275, y: 120,
+    ru: { name: "Проектирование", cap: "план · DoD", stage: "ПРОЕКТИРОВАНИЕ", control: "ВЛАДЕЛЕЦ И DoD ЗАФИКСИРОВАНЫ", time: "00:04", event: "AI подготовил план, критерии готовности и список рисков." },
+    en: { name: "Design", cap: "plan · DoD", stage: "DESIGN", control: "OWNER AND DoD RECORDED", time: "00:04", event: "AI prepared the plan, definition of done and risk list." }
+  },
+  {
+    x: 475, y: 190,
+    ru: { name: "Исполнение", cap: "агенты · tools", stage: "ИСПОЛНЕНИЕ", control: "ИНСТРУМЕНТЫ В РАМКАХ ДОСТУПА", time: "00:09", event: "Агенты выполняют задачу в пределах назначенных полномочий." },
+    en: { name: "Execution", cap: "agents · tools", stage: "EXECUTION", control: "TOOLS WITHIN ACCESS SCOPE", time: "00:09", event: "Agents execute the task within their assigned authority." }
+  },
+  {
+    x: 660, y: 105,
+    ru: { name: "Проверка", cap: "гейты · DoD", stage: "ПРОВЕРКА", control: "ГЕЙТЫ ПРОЙДЕНЫ", time: "00:16", event: "Результат проверен по DoD, политикам и инженерным инвариантам." },
+    en: { name: "Validation", cap: "gates · DoD", stage: "VALIDATION", control: "GATES PASSED", time: "00:16", event: "The result passed DoD, policy and engineering-invariant checks." }
+  },
+  {
+    x: 760, y: 255, kind: "human",
+    ru: { name: "Решение", cap: "человеческое «ДА»", stage: "РЕШЕНИЕ ЧЕЛОВЕКА", control: "ПОДТВЕРЖДЕНИЕ ПОЛУЧЕНО", time: "00:20", event: "Человек сверил результат с целью и подтвердил изменение." },
+    en: { name: "Decision", cap: "human “YES”", stage: "HUMAN DECISION", control: "APPROVAL RECEIVED", time: "00:20", event: "A human compared the result with the goal and approved the change." }
+  },
+  {
+    x: 915, y: 190,
+    ru: { name: "Внедрение", cap: "CI · журнал", stage: "ВНЕДРЕНИЕ", control: "АУДИТ ЗАВЕРШЁН", time: "00:23", event: "Изменение передано в CI. Контекст и история решения сохранены." },
+    en: { name: "Deployment", cap: "CI · audit", stage: "DEPLOYMENT", control: "AUDIT COMPLETE", time: "00:23", event: "The change was handed to CI. Its context and decision history were retained." }
+  }
 ];
-const TY = 218;
 
 function el(tag, attrs, parent) {
   const node = document.createElementNS(svgNS, tag);
@@ -89,164 +130,79 @@ function el(tag, attrs, parent) {
 }
 
 const stationsLayer = document.querySelector("#stations");
-ST.forEach((station, index) => {
-  el("circle", { cx: station.x, cy: TY, r: 30, class: "st-ring" + (index === 0 ? " hot" : "") }, stationsLayer);
-  el("text", { x: station.x, y: TY + 5, "text-anchor": "middle", class: "st-ico" }, stationsLayer).textContent = station.ico;
-  el("text", { x: station.x, y: TY + 58, "text-anchor": "middle", class: "st-name" }, stationsLayer).textContent = station.name;
-  el("text", { x: station.x, y: TY + 76, "text-anchor": "middle", class: "st-cap" }, stationsLayer).textContent = station.cap;
+const edgesLayer = document.querySelector("#graph-edges");
+const edgeEls = ST.slice(0, -1).map((station, index) => {
+  const next = ST[index + 1];
+  const bend = (next.x - station.x) * .48;
+  const path = `M ${station.x} ${station.y} C ${station.x + bend} ${station.y}, ${next.x - bend} ${next.y}, ${next.x} ${next.y}`;
+  return el("path", { d: path, class: "graph-edge" }, edgesLayer);
 });
-const gateText = el("text", { x: ST[2].x, y: TY - 52, "text-anchor": "middle", class: "gate-t", opacity: 0 }, stationsLayer);
-gateText.textContent = FL[currentLang].gate;
+const stationEls = ST.map((station, index) => {
+  const group = el("g", { class: `station${station.kind ? ` ${station.kind}` : ""}` }, stationsLayer);
+  el("rect", { x: station.x - 65, y: station.y - 26, width: 130, height: 52, rx: 11, class: "st-card" }, group);
+  el("text", { x: station.x - 55, y: station.y - 14, class: "st-index" }, group).textContent = String(index + 1).padStart(2, "0");
+  const name = el("text", { x: station.x, y: station.y - 2, "text-anchor": "middle", class: "st-name" }, group);
+  const cap = el("text", { x: station.x, y: station.y + 15, "text-anchor": "middle", class: "st-cap" }, group);
+  return { group, name, cap };
+});
 
-const chipsLayer = document.querySelector("#chips");
-const floatsLayer = document.querySelector("#floats");
-const stats = { prod: 0, yes: 0, gate: 0, money: 0, tok: 0 };
-const statEls = {
-  prod: document.querySelector("#sProd"), yes: document.querySelector("#sYes"),
-  gate: document.querySelector("#sGate"), money: document.querySelector("#sMoney"),
-  tok: document.querySelector("#sTok")
-};
+const taskChip = document.querySelector("#task-chip");
+const stageText = document.querySelector("#sStage");
+const controlText = document.querySelector("#sControl");
+const eventBox = document.querySelector("#fab-event");
+const eventTime = document.querySelector("#event-time");
+const eventText = document.querySelector("#event-text");
+let activeStage = reduced ? ST.length - 1 : 0;
+let stageTimer;
 
-function paintStats() {
-  const money = currentLang === "en"
-    ? "₽ " + stats.money.toFixed(2)
-    : "₽ " + stats.money.toFixed(2).replace(".", ",");
-  statEls.prod.textContent = stats.prod;
-  statEls.yes.textContent = `${stats.yes} × ${FL[currentLang].yesWord}`;
-  statEls.gate.textContent = stats.gate;
-  statEls.money.textContent = money;
-  statEls.tok.textContent = Math.round(stats.tok) + "k";
-}
-
-let floats = [];
-function addFloat(x, y, text, kind) {
-  const node = el("text", { x, y, "text-anchor": "middle", class: "float-t " + kind }, floatsLayer);
-  node.textContent = text;
-  floats.push({ el: node, y, age: 0 });
-}
-
-let chips = [];
-let issueNumber = 29;
-const DWELL = [900, 1300, 3200, 2200, 700];
-
-function makeChip() {
-  const group = el("g", { class: "fab-chip", opacity: 0 }, chipsLayer);
-  el("rect", { x: -27, y: -13, width: 54, height: 26, rx: 6, class: "chip-r" }, group);
-  el("text", { x: 0, y: 4, "text-anchor": "middle", class: "chip-t" }, group).textContent = "#" + issueNumber++;
-  const chip = {
-    el: group, st: 0, x: ST[0].x, phase: "dwell", t: DWELL[0] * (0.8 + Math.random() * 0.5),
-    gated: false, rejected: false, bob: Math.random() * 6.28, kick: 0, dead: false
-  };
-  chips.push(chip);
-  return chip;
-}
-
-function stepChip(chip, dt) {
-  chip.bob += dt * 0.004;
-  const opacity = +chip.el.getAttribute("opacity");
-  if (opacity < 1 && chip.phase !== "die") chip.el.setAttribute("opacity", Math.min(1, opacity + dt * 0.003));
-
-  if (chip.phase === "dwell") {
-    chip.t -= dt;
-    if (chip.st === 2 && !chip.gated && chip.t < DWELL[2] * 0.5) {
-      chip.gated = true;
-      if (Math.random() < 0.45) {
-        stats.gate++;
-        gateText.setAttribute("opacity", "1");
-        setTimeout(() => gateText.setAttribute("opacity", "0"), 1200);
-        chip.t += 1400;
-        chip.kick = 300;
-      }
-    }
-    if (chip.t <= 0) {
-      if (chip.st === 3) {
-        if (!chip.rejected && Math.random() < 0.18) {
-          chip.rejected = true;
-          addFloat(chip.x, TY - 46, FL[currentLang].no, "bad");
-          chip.phase = "move"; chip.target = 2;
-          return;
-        }
-        stats.yes++;
-        addFloat(chip.x, TY - 46, FL[currentLang].yes, "ok");
-        chip.el.setAttribute("class", "fab-chip done");
-      }
-      if (chip.st === 4) {
-        chip.phase = "die"; chip.t = 600;
-        stats.prod++;
-        stats.money += 0.9 + Math.random() * 1.6;
-        const ring = el("circle", { cx: ST[4].x, cy: TY, r: 30, class: "pulse-ring", opacity: 0.8 }, floatsLayer);
-        if (ring.animate) {
-          ring.animate([{ opacity: .8, r: 30 }, { opacity: 0, r: 52 }], { duration: 700 }).onfinish = () => ring.remove();
-        } else ring.remove();
-        return;
-      }
-      chip.phase = "move"; chip.target = chip.st + 1;
-    }
-  } else if (chip.phase === "move") {
-    const targetX = ST[chip.target].x;
-    const dir = targetX > chip.x ? 1 : -1;
-    chip.x += dir * dt * 0.14;
-    if ((dir > 0 && chip.x >= targetX) || (dir < 0 && chip.x <= targetX)) {
-      chip.x = targetX; chip.st = chip.target; chip.phase = "dwell";
-      chip.t = DWELL[chip.st] * (0.8 + Math.random() * 0.5);
-      if (chip.st === 2 && chip.rejected) chip.t *= 0.5;
-      if (chip.st === 1) addFloat(chip.x, TY - 46, FL[currentLang].dod, "info");
-    }
-  } else if (chip.phase === "die") {
-    chip.t -= dt;
-    chip.el.setAttribute("opacity", Math.max(0, chip.t / 600));
-    if (chip.t <= 0) { chip.dead = true; chip.el.remove(); }
-  }
-
-  let kickY = 0;
-  if (chip.kick > 0) { chip.kick -= dt; if (chip.kick < 0) chip.kick = 0; kickY = Math.sin(chip.kick * 0.05) * 3; }
-  const y = TY - 34 + Math.sin(chip.bob) * 2 + kickY;
-  chip.el.setAttribute("transform", `translate(${chip.x},${y})`);
-  if (chip.st === 2 && chip.phase === "dwell") stats.tok += dt * 0.004;
-}
-
-if (reduced) {
-  [0, 1, 2, 3].forEach(index => {
-    const chip = makeChip();
-    chip.st = index; chip.x = ST[index].x;
-    chip.el.setAttribute("opacity", "1");
-    chip.el.setAttribute("transform", `translate(${chip.x},${TY - 34})`);
+function renderStage(index) {
+  activeStage = index;
+  const finalStage = index === ST.length - 1;
+  stationEls.forEach((nodes, stationIndex) => {
+    const classes = ["station"];
+    if (ST[stationIndex].kind) classes.push(ST[stationIndex].kind);
+    if (stationIndex < index) classes.push("complete");
+    if (stationIndex === index) classes.push("active");
+    if (ST[stationIndex].kind === "human" && stationIndex <= index) classes.push("approved");
+    if (stationIndex === index && finalStage) classes.push("approved");
+    nodes.group.setAttribute("class", classes.join(" "));
+    nodes.name.textContent = ST[stationIndex][currentLang].name;
+    nodes.cap.textContent = ST[stationIndex][currentLang].cap;
   });
-  stats.prod = 12; stats.yes = 12; stats.gate = 5; stats.money = 17.4; stats.tok = 348;
-  paintStats();
-} else {
-  let spawnTimer = 0;
-  let last = null;
-  function loop(timestamp) {
-    if (last === null) last = timestamp;
-    const dt = Math.min(50, timestamp - last);
-    last = timestamp;
-    spawnTimer -= dt;
-    if (spawnTimer <= 0 && chips.filter(chip => !chip.dead).length < 5) {
-      makeChip();
-      spawnTimer = 2600 + Math.random() * 1800;
-    }
-    chips.forEach(chip => { if (!chip.dead) stepChip(chip, dt); });
-    chips = chips.filter(chip => !chip.dead);
-    floats.forEach(item => {
-      item.age += dt;
-      item.el.setAttribute("y", item.y - item.age * 0.02);
-      item.el.setAttribute("opacity", Math.max(0, 1 - item.age / 1400));
-      if (item.age > 1400) item.el.remove();
-    });
-    floats = floats.filter(item => item.age <= 1400);
-    paintStats();
-    requestAnimationFrame(loop);
-  }
-  requestAnimationFrame(loop);
+  edgeEls.forEach((edge, edgeIndex) => {
+    const complete = edgeIndex < index;
+    edge.setAttribute("class", `graph-edge${complete ? edgeIndex >= 3 ? " approved" : " complete" : ""}`);
+  });
+
+  const copy = ST[index][currentLang];
+  taskChip.setAttribute("transform", `translate(${ST[index].x} ${ST[index].y - 50})`);
+  taskChip.setAttribute("class", `fab-chip${index >= 4 ? " approved" : ""}`);
+  stageText.textContent = copy.stage;
+  controlText.textContent = copy.control;
+  eventTime.textContent = copy.time;
+  eventText.textContent = copy.event;
+  eventBox.classList.toggle("approved", index >= 4);
 }
+
+function scheduleNextStage() {
+  clearTimeout(stageTimer);
+  if (reduced) return;
+  const delay = activeStage === ST.length - 1 ? 4300 : 2850;
+  stageTimer = setTimeout(() => {
+    renderStage((activeStage + 1) % ST.length);
+    scheduleNextStage();
+  }, delay);
+}
+
+renderStage(activeStage);
+scheduleNextStage();
 
 /* ---------- language ---------- */
 function translateStatic(lang) {
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   let node;
   while ((node = walker.nextNode())) {
-    if (node.parentElement?.closest("script, style, #chips, #floats")) continue;
+    if (node.parentElement?.closest("script, style, #stations, #task-chip, #fab-event")) continue;
     if (!originalText.has(node)) originalText.set(node, node.nodeValue);
     const russian = originalText.get(node);
     const trimmed = russian.trim();
@@ -255,8 +211,8 @@ function translateStatic(lang) {
   document.documentElement.lang = lang;
   document.title = lang === "en" ? "AI Fabric · AI Innovation Lab" : "AI Fabric · AI Innovation Lab";
   document.querySelector('meta[name="description"]').content = lang === "en"
-    ? "AI Fabric — the AI Innovation Lab operating loop: a task conveyor, gates and the human “YES”."
-    : "AI Fabric — операционный контур AI Innovation Lab: конвейер задач, гейты и человеческое «ДА».";
+    ? "AI Fabric — an engineering loop for developing and operating AI systems, from task to safe deployment."
+    : "AI Fabric — инженерный контур разработки и эксплуатации AI-систем: от задачи до безопасного внедрения.";
   document.querySelector("nav").setAttribute("aria-label", lang === "en" ? "Navigation" : "Навигация");
   document.querySelector(".lang-switch").setAttribute("aria-label", lang === "en" ? "Language" : "Язык");
 }
@@ -275,14 +231,13 @@ function setLanguage(lang) {
   currentLang = lang === "en" ? "en" : "ru";
   localStorage.setItem("ailab-lang", currentLang);
   translateStatic(currentLang);
-  gateText.textContent = FL[currentLang].gate;
   document.querySelectorAll("[data-lang]").forEach(button => {
     const selected = button.dataset.lang === currentLang;
     button.classList.toggle("active", selected);
     button.setAttribute("aria-pressed", selected);
   });
   updateThemeControl();
-  paintStats();
+  renderStage(activeStage);
 }
 
 document.querySelectorAll("[data-lang]").forEach(button =>

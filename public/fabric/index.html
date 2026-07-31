@@ -3,47 +3,54 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="AI Fabric — операционный контур AI Innovation Lab: конвейер задач, гейты и человеческое «ДА».">
+  <meta name="description" content="AI Fabric — инженерный контур разработки и эксплуатации AI-систем: от задачи до безопасного внедрения.">
   <title>AI Fabric · AI Innovation Lab</title>
   <link rel="stylesheet" href="../styles.css">
   <style>
     :root{--red:#e0564c}
     html[data-theme="light"]{--red:#c03b32}
-    .fab-hero{width:min(var(--max),calc(100% - 48px));margin:auto;padding:80px 0 55px}
-    .fab-hero h1{font-size:clamp(2.6rem,5vw,4.6rem);line-height:1.04}
-    .fab-hero .hero-lede{max-width:760px}
+    .fab-hero{width:min(var(--max),calc(100% - 48px));margin:auto;padding:78px 0 52px}
+    .fab-hero h1{max-width:1250px;font-size:clamp(2.7rem,4.6vw,4.5rem);line-height:1.02}
+    .fab-hero h1 em{color:var(--accent);font:inherit;font-style:normal}
+    .fab-hero .hero-lede{max-width:720px}
+    .fabric-overview{padding-top:90px}
+    .pipeline-section{padding-bottom:150px}
+    .pipeline-section .section-heading{grid-template-columns:1.4fr .5fr}
+    #line-title{font-size:clamp(2.35rem,4vw,4rem);white-space:nowrap}
 
-    .fabric-shell{width:min(1560px,calc(100% - 32px));margin:auto;border:1px solid var(--line2);border-radius:9px;overflow:hidden;background:var(--panel);box-shadow:0 45px 100px rgba(0,0,0,.27)}
+    .fabric-shell{width:100%;margin:0;border:1px solid var(--line2);border-radius:9px;overflow:hidden;background:var(--panel);box-shadow:0 30px 75px rgba(0,0,0,.18)}
+    .graph-scroll{width:100%}
     .fab-svg{display:block;width:100%;height:auto;background:var(--soft)}
-    .rail-t{font:8.5px var(--mono);fill:var(--faint);letter-spacing:.14em}
-    .rail-l{stroke:var(--line);stroke-width:1;stroke-dasharray:2 6}
-    .track{stroke:var(--line2);stroke-width:1.6}
-    .trackflow{stroke:var(--accent);stroke-width:1.6;stroke-dasharray:6 14;opacity:.4;animation:fabflow 1.4s linear infinite}
-    @keyframes fabflow{to{stroke-dashoffset:-20}}
-    .st-ring{fill:var(--panel);stroke:var(--line2);stroke-width:1.4}
-    .st-ring.hot{stroke:var(--accent);filter:drop-shadow(0 0 6px rgba(255,112,67,.4))}
-    .st-ico{font:14px var(--mono);fill:var(--muted)}
-    .st-name{font:600 11px var(--mono);fill:var(--text);letter-spacing:.06em}
-    .st-cap{font:8px var(--mono);fill:var(--faint)}
+    .support-edge{fill:none;stroke:var(--line);stroke-width:1;stroke-dasharray:3 7}
+    .support-node rect{fill:var(--panel);stroke:var(--line2);stroke-width:1}
+    .support-node text{fill:var(--muted);font:600 8px var(--mono);letter-spacing:.1em}
+    .support-node .support-sub{fill:var(--faint);font-size:7px}
+    .graph-edge{fill:none;stroke:var(--line2);stroke-width:1.6;transition:stroke .35s,filter .35s}
+    .graph-edge.complete{stroke:var(--accent)}
+    .graph-edge.approved{stroke:var(--green)}
+    .station{transition:opacity .35s}
+    .st-card{fill:var(--panel);stroke:var(--line2);stroke-width:1.2}
+    .station.active .st-card{stroke:var(--accent);stroke-width:1.8;filter:drop-shadow(0 0 7px rgba(255,112,67,.28))}
+    .station.complete .st-card{stroke:var(--accent)}
+    .station.human .st-card{stroke:color-mix(in srgb,var(--green) 55%,var(--line2))}
+    .station.approved .st-card{stroke:var(--green);stroke-width:1.8;filter:drop-shadow(0 0 7px rgba(65,211,155,.3))}
+    .st-index{fill:var(--faint);font:600 7px var(--mono);letter-spacing:.08em}
+    .station.active .st-index{fill:var(--accent)}
+    .station.approved .st-index{fill:var(--green)}
+    .st-name{font:600 10px var(--mono);fill:var(--text);letter-spacing:.04em}
+    .st-cap{font:7px var(--mono);fill:var(--faint)}
     .chip-r{fill:var(--accent)}
-    .chip-t{font:600 11px var(--mono);fill:#fff}
-    .fab-chip.done .chip-r{fill:var(--green)}
-    .float-t{font:600 11.5px var(--mono)}
-    .float-t.ok{fill:var(--green)}
-    .float-t.bad{fill:var(--red)}
-    .float-t.info{fill:var(--muted)}
-    .gate-t{font:600 10.5px var(--mono);fill:var(--amber);transition:opacity .3s}
-    .pulse-ring{fill:none;stroke:var(--green);stroke-width:2}
+    .chip-t{font:600 10px var(--mono);fill:#fff}
+    .fab-chip.approved .chip-r{fill:var(--green)}
 
-    .fab-readout{display:flex;flex-wrap:wrap;gap:8px 22px;padding:14px 20px;border-top:1px solid var(--line);color:var(--faint);font:9px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+    .fab-readout{display:flex;align-items:center;flex-wrap:wrap;gap:8px 26px;padding:14px 20px;border-top:1px solid var(--line);color:var(--faint);font:9px var(--mono);letter-spacing:.1em;text-transform:uppercase}
     .fab-readout b{color:var(--text);font-weight:600}
-    .fab-readout .ok b{color:var(--green)}
-    .fab-readout .money b{color:var(--accent)}
-    .fab-legend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 20px 16px;color:var(--faint);font:8.5px var(--mono)}
-    .fab-legend i{display:inline-block;width:8px;height:8px;margin-right:6px;border-radius:2px}
-    .fab-legend .c1 i{background:var(--accent)}
-    .fab-legend .c2 i{background:var(--amber)}
-    .fab-legend .c3 i{background:var(--green)}
+    .fab-readout .demo{margin-left:auto;color:var(--faint)}
+    .fab-event{display:grid;grid-template-columns:6px 42px 1fr;gap:10px;align-items:center;min-height:46px;padding:0 20px;border-top:1px solid var(--line);color:var(--muted);font:9px var(--mono);letter-spacing:.04em}
+    .fab-event i{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 9px var(--accent)}
+    .fab-event b{color:var(--faint);font-weight:500}
+    .fab-event.approved i{background:var(--green);box-shadow:0 0 9px var(--green)}
+    .fab-event.approved span{color:var(--green)}
 
     .fab-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
     .fab-card{padding:30px;border:1px solid var(--line);border-radius:7px;background:var(--panel)}
@@ -51,31 +58,31 @@
     .fab-card h3{margin:14px 0 12px;font:500 1.35rem var(--mono);letter-spacing:-.03em}
     .fab-card p{margin:0;color:var(--muted);line-height:1.7;font-size:.86rem}
 
-    .stack{display:flex;overflow-x:auto;padding-bottom:8px}
-    .layer{flex:1;min-width:128px;position:relative;background:var(--panel);border:1px solid var(--line);padding:16px 14px 13px;margin-right:26px;border-radius:7px;animation:lglow 12s infinite}
-    .layer:last-child{margin-right:0}
-    .layer::after{content:"→";position:absolute;right:-21px;top:50%;transform:translateY(-55%);color:var(--faint);font-size:14px}
+    .architecture-frame{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:14px;align-items:stretch}
+    .stack{display:flex;flex-direction:column;gap:12px}
+    .layer{position:relative;display:grid;grid-template-columns:minmax(210px,.7fr) 1fr;align-items:center;min-height:62px;background:var(--panel);border:1px solid var(--line);padding:14px 18px;border-radius:7px;transition:border-color .25s}
+    .layer:hover{border-color:var(--accent)}
+    .layer::after{content:"↓";position:absolute;left:50%;bottom:-15px;transform:translateX(-50%);color:var(--faint);font:11px var(--mono);z-index:2}
     .layer:last-child::after{display:none}
-    .layer .t{font:600 10.5px var(--mono);color:var(--text);letter-spacing:.04em;margin-bottom:6px;text-transform:uppercase}
+    .layer .t{font:600 10.5px var(--mono);color:var(--text);letter-spacing:.04em;text-transform:uppercase}
     .layer .d{font-size:11px;color:var(--faint);line-height:1.45}
-    .layer:nth-child(1){animation-delay:0s}.layer:nth-child(2){animation-delay:2s}
-    .layer:nth-child(3){animation-delay:4s}.layer:nth-child(4){animation-delay:6s}
-    .layer:nth-child(5){animation-delay:8s}.layer:nth-child(6){animation-delay:10s}
-    @keyframes lglow{0%,4%{border-color:var(--accent);box-shadow:0 0 16px var(--wash)}12%,100%{border-color:var(--line);box-shadow:none}}
-    .crossband{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:18px;color:var(--faint);font:9px var(--mono);letter-spacing:.1em;text-transform:uppercase}
-    .crossband .x{border:1px dashed var(--line2);border-radius:16px;padding:5px 13px;color:var(--muted)}
+    .crossband{display:flex;flex-direction:column;padding:28px;border:1px solid var(--line);border-left:2px solid var(--accent);border-radius:7px;background:linear-gradient(180deg,var(--wash),transparent 45%),var(--panel)}
+    .crossband-title{color:var(--accent);font:600 9px var(--mono);letter-spacing:.14em}
+    .crossband p{margin:18px 0 24px;color:var(--muted);font-size:.84rem;line-height:1.7}
+    .crossband-items{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto}
+    .crossband .x{padding:8px 10px;border:1px solid var(--line2);border-radius:4px;color:var(--muted);font:8px var(--mono);letter-spacing:.08em;text-transform:uppercase}
 
     .fab-strip{margin-top:60px;padding:28px 32px;border:1px solid var(--line);border-left:2px solid var(--accent);border-radius:7px;background:var(--panel)}
     .fab-strip p{margin:0;color:var(--muted);line-height:1.75;max-width:900px}
     .fab-strip b{color:var(--text)}
 
-    @media(max-width:880px){.fab-cards{grid-template-columns:1fr}.fab-hero{padding:55px 0 40px}}
-    @media(max-width:600px){.fab-hero{width:calc(100% - 28px)}.fabric-shell{width:calc(100% - 14px)}.fab-strip{padding:22px}}
-    @media(prefers-reduced-motion:reduce){.layer,.trackflow{animation:none!important}}
+    @media(max-width:880px){.fab-cards{grid-template-columns:1fr}.fab-hero{padding:55px 0 40px}.fabric-overview{padding-top:70px}.architecture-frame{grid-template-columns:1fr}.crossband-items{grid-template-columns:repeat(3,1fr)}.pipeline-section .section-heading{grid-template-columns:1fr}}
+    @media(max-width:600px){.fab-hero{width:auto;margin-inline:14px}.fab-hero .hero-lede{max-width:100%;overflow-wrap:anywhere}.fabric-shell{margin:0}.fab-strip{padding:22px}.fab-readout span:nth-child(3){display:none}.fab-event{grid-template-columns:6px 1fr}.fab-event b{display:none}.pipeline-section{padding-bottom:105px}.layer{grid-template-columns:1fr;gap:5px}.crossband{padding:22px}.crossband-items{grid-template-columns:1fr 1fr}#line-title{font-size:clamp(1.6rem,7.4vw,2.35rem);white-space:normal}}
+    @media(max-width:600px){.graph-scroll{overflow-x:auto}.graph-scroll .fab-svg{width:820px;max-width:none}}
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#line">К конвейеру</a>
+  <a class="skip-link" href="#line">К графу выполнения</a>
   <div class="ambient" aria-hidden="true"></div>
 
   <header>
@@ -92,7 +99,7 @@
       </a>
       <nav aria-label="Навигация">
         <a href="../">На главную</a>
-        <a href="#line">Конвейер</a>
+        <a href="#line">Процесс</a>
         <a href="#principles">Принципы</a>
         <a href="#architecture">Архитектура</a>
       </nav>
@@ -110,47 +117,44 @@
 
   <main id="top">
     <section class="fab-hero">
-      <p class="overline"><i></i> AI FABRIC · ОПЕРАЦИОННЫЙ КОНТУР ЛАБОРАТОРИИ</p>
-      <h1>Инфраструктура нового поколения:<br>люди и AI-агенты <em>в одном контуре</em></h1>
-      <p class="hero-lede">Мы разработали управляемую среду непрерывной интеграции AI в корпоративный контур: люди и AI-агенты ведут работу вместе — от идеи до продакшена. Ниже этот контур в действии: AI анализирует, предлагает и оформляет. Человек решает.</p>
+      <p class="overline"><i></i> AI FABRIC · ИНЖЕНЕРНЫЙ КОНТУР</p>
+      <h1>Управляемый путь<br>от задачи до <em>работающей AI-системы</em></h1>
+      <p class="hero-lede">AI Fabric связывает анализ, проектирование, работу агентов, проверки и внедрение в один воспроизводимый процесс. AI готовит действие. Человек разрешает его выполнить.</p>
     </section>
 
-    <section class="fabric-shell" id="line" aria-labelledby="line-title">
-      <div class="lab-topbar">
-        <div class="window-lights"><i></i><i></i><i></i></div>
-        <p><b>AILAB://</b> AI_FABRIC_CONVEYOR</p>
-        <span><i></i> PIPELINE RUNNING</span>
+    <section class="section fabric-overview" id="architecture">
+      <div class="section-heading reveal">
+        <div><p class="section-code">01 / ARCHITECTURE</p><h2>Архитектура<br><em>AI Fabric.</em></h2></div>
+        <p>Бизнес-процесс, агенты, инструменты, политики и данные соединены в один наблюдаемый контур — без скрытых переходов между слоями.</p>
       </div>
-      <h2 id="line-title" class="sr-only" style="position:absolute;left:-9999px">Конвейер задач</h2>
-      <svg class="fab-svg" id="fab" viewBox="0 0 1000 430" role="img" aria-label="Анимированный конвейер: анализ, задачи, работа, приёмка, прод. Сверху — governance и security, снизу — observability и FinOps.">
-        <line class="rail-l" x1="40" y1="58" x2="960" y2="58"/>
-        <text class="rail-t" x="40" y="42">GOVERNANCE · SECURITY · IAM &amp; POLICIES</text>
-        <line class="rail-l" x1="40" y1="376" x2="960" y2="376"/>
-        <text class="rail-t" x="40" y="400">OBSERVABILITY · FINOPS · KPI/ROI</text>
-        <line class="track" x1="70" y1="218" x2="930" y2="218"/>
-        <line class="trackflow" x1="70" y1="218" x2="930" y2="218"/>
-        <g id="stations"></g>
-        <g id="chips"></g>
-        <g id="floats"></g>
-      </svg>
-      <div class="fab-readout">
-        <span class="ok">в проде: <b id="sProd">0</b></span>
-        <span>human sign-off: <b id="sYes">0 × ДА</b></span>
-        <span>гейт остановил: <b id="sGate">0</b></span>
-        <span class="money">затраты AI: <b id="sMoney">₽ 0,00</b></span>
-        <span>токены: <b id="sTok">0k</b></span>
+      <div class="architecture-frame">
+        <div class="stack reveal">
+          <div class="layer"><div class="t">Business Process</div><div class="d">планёрки · SOC · приёмка подрядчика</div></div>
+          <div class="layer"><div class="t">AI Agent / Human</div><div class="d">агенты + человек с правом «ДА»</div></div>
+          <div class="layer"><div class="t">Agent Identity + Registry</div><div class="d">владелец · роль · полномочия</div></div>
+          <div class="layer"><div class="t">Gateway / Policy / Orchestration</div><div class="d">маршрутизация · tools · гейты</div></div>
+          <div class="layer"><div class="t">Models + Enterprise Data + APIs</div><div class="d">LLM · DWH · ERP · корпоративные API</div></div>
+          <div class="layer"><div class="t">Enterprise Systems</div><div class="d">сервисы · хосты · контейнеры · CI</div></div>
+        </div>
+        <aside class="crossband reveal">
+          <span class="crossband-title">СКВОЗНОЙ КОНТУР</span>
+          <p>Эти функции не образуют отдельный этаж. Они действуют на каждом уровне — от бизнес-процесса до инфраструктуры.</p>
+          <div class="crossband-items">
+            <span class="x">Security</span><span class="x">Governance</span>
+            <span class="x">Observability</span><span class="x">AI FinOps</span>
+            <span class="x">Skills</span><span class="x">Business KPI</span>
+          </div>
+        </aside>
       </div>
-      <div class="fab-legend">
-        <span class="c1"><i></i>карточка — задача из трекера</span>
-        <span class="c2"><i></i>вспышка — сработал гейт</span>
-        <span class="c3"><i></i>зелёная — принята человеком</span>
+      <div class="fab-strip reveal">
+        <p><b>Управленческий вывод.</b> Технологический стек постепенно становится стандартным. Преимущество возникает там, где его связывают с процессами, людьми, governance и измеримым экономическим эффектом.</p>
       </div>
     </section>
 
     <section class="section" id="principles">
       <div class="section-heading reveal">
-        <div><p class="section-code">01 / RULES OF THE FABRIC</p><h2>Мы автоматизировали всё,<br><em>кроме решения.</em></h2></div>
-        <p>Конвейер убирает налог на вспоминание и не даёт начать задачу, которая не додумана. Решения он не принимает.</p>
+        <div><p class="section-code">02 / OPERATING PRINCIPLES</p><h2>AI готовит действие.<br><em>Человек решает.</em></h2></div>
+        <p>Процесс снимает рутину, сохраняет контекст и не пропускает неподготовленную задачу дальше. Полномочия остаются явными на каждом этапе.</p>
       </div>
       <div class="fab-cards">
         <article class="fab-card reveal"><span>01</span>
@@ -168,32 +172,59 @@
       </div>
     </section>
 
-    <section class="section" id="architecture">
+    <section class="section pipeline-section" id="line" aria-labelledby="line-title">
       <div class="section-heading reveal">
-        <div><p class="section-code">02 / NEXT-GEN STACK</p><h2>Архитектура, к которой<br><em>идёт индустрия.</em></h2></div>
-        <p>Microsoft, Google и Snowflake в 2026-м описывают один и тот же стек управляемого Enterprise AI. Мы собрали его в миниатюре — и он работает.</p>
+        <div><p class="section-code">03 / ONE TASK IN MOTION</p><h2 id="line-title">Одна задача — <em>весь контур.</em></h2></div>
+        <p>Граф показывает не абстрактный workflow, а конкретный маршрут: кто получил контекст, где работал AI, что проверили политики и в какой точке потребовалось решение человека.</p>
       </div>
-      <div class="stack reveal">
-        <div class="layer"><div class="t">Business Process</div><div class="d">планёрки · SOC · приёмка подрядчика</div></div>
-        <div class="layer"><div class="t">AI Agent / Human</div><div class="d">агенты + человек с правом «ДА»</div></div>
-        <div class="layer"><div class="t">MCP / AI Gateway</div><div class="d">оркестратор · tool-use loop</div></div>
-        <div class="layer"><div class="t">IAM &amp; Policies</div><div class="d">RBAC · confirmation pattern</div></div>
-        <div class="layer"><div class="t">Data &amp; APIs</div><div class="d">DWH · ERP · корп. системы</div></div>
-        <div class="layer"><div class="t">Infrastructure</div><div class="d">хосты · контейнеры · CI</div></div>
-      </div>
-      <div class="crossband reveal">
-        <span>поперёк всех слоёв:</span>
-        <span class="x">Observability</span><span class="x">Security</span>
-        <span class="x">FinOps</span><span class="x">Governance</span><span class="x">KPI / ROI</span>
-      </div>
-      <div class="fab-strip reveal">
-        <p><b>Почему это важно.</b> Конкурентное преимущество ближайших лет — не доступ к моделям, он есть у всех. Преимущество — управляемый контур, в котором тысячи решений AI ежедневно превращаются в проверяемые действия: с владельцем, с политикой, с ценой и с человеческим «ДА» в нужных местах. Такой контур мы строим и проверяем на себе.</p>
+      <div class="fabric-shell reveal">
+        <div class="lab-topbar">
+          <div class="window-lights"><i></i><i></i><i></i></div>
+          <p><b>AILAB://</b> AI_FABRIC_EXECUTION_GRAPH</p>
+          <span><i></i> WORKFLOW ACTIVE</span>
+        </div>
+        <div class="graph-scroll">
+        <svg class="fab-svg" id="fab" viewBox="0 0 1000 390" role="img" aria-label="Граф выполнения одной задачи: контекст, проектирование, исполнение, проверка, решение человека и внедрение.">
+          <g class="support-layer" aria-hidden="true">
+            <path class="support-edge" d="M500 72 C500 105 310 80 275 108"/>
+            <path class="support-edge" d="M500 72 L475 164"/>
+            <path class="support-edge" d="M500 72 C520 100 625 70 660 93"/>
+            <path class="support-edge" d="M500 318 L475 216"/>
+            <path class="support-edge" d="M500 318 C560 290 690 300 755 268"/>
+            <g class="support-node">
+              <rect x="400" y="28" width="200" height="44" rx="10"/>
+              <text x="500" y="46" text-anchor="middle">IDENTITY · SECURITY</text>
+              <text class="support-sub" x="500" y="61" text-anchor="middle">POLICIES &amp; ACCESS</text>
+            </g>
+            <g class="support-node">
+              <rect x="400" y="318" width="200" height="44" rx="10"/>
+              <text x="500" y="336" text-anchor="middle">OBSERVABILITY · COST</text>
+              <text class="support-sub" x="500" y="351" text-anchor="middle">AUDIT &amp; VALUE</text>
+            </g>
+          </g>
+          <g id="graph-edges"></g>
+          <g id="stations"></g>
+          <g class="fab-chip" id="task-chip" transform="translate(95 140)">
+            <rect x="-29" y="-13" width="58" height="26" rx="6" class="chip-r"/>
+            <text x="0" y="4" text-anchor="middle" class="chip-t">#29</text>
+          </g>
+        </svg>
+        </div>
+        <div class="fab-readout">
+          <span>задача: <b>#29</b></span>
+          <span>этап: <b id="sStage">КОНТЕКСТ</b></span>
+          <span>контроль: <b id="sControl">ПОЛИТИКИ ПРИМЕНЕНЫ</b></span>
+          <span class="demo">DEMO · ONE TASK</span>
+        </div>
+        <div class="fab-event" id="fab-event" aria-live="polite">
+          <i></i><b id="event-time">00:01</b><span id="event-text">Контекст задачи собран из stand-up, репозитория и трекера.</span>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div><p class="section-code">AI INNOVATION LAB</p><h2>Фабрика работает.<br><em>Решает — человек.</em></h2></div>
+    <div><p class="section-code">AI INNOVATION LAB</p><h2>AI Fabric работает.<br><em>Решает — человек.</em></h2></div>
     <nav><a href="../#lab">Live Lab ↗</a><a href="../#publications">Публикации →</a><a href="#top">Наверх ↑</a></nav>
   </footer>
 
